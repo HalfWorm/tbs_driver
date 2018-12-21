@@ -33,12 +33,12 @@ else
 fi
 
 
-sudo dnf -y groupinstall "Development Tools"
-sudo dnf -y install elfutils-libelf-devel
-sudo dnf -y install gcc unzip
-sudo dnf -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
-sudo dnf -y install patch patchutils
-sudo dnf -y install rpm-build spectool git mock
+sudo yum -y groupinstall "Development Tools"
+sudo yum -y install elfutils-libelf-devel
+sudo yum -y install gcc unzip
+sudo yum -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
+sudo yum -y install patch patchutils
+sudo yum -y install rpm-build spectool git mock
 
 if [[ $(id) =~ "135(mock)" ]] ; then
         echo "==moc=="
