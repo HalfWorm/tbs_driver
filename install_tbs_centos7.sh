@@ -12,23 +12,11 @@ else
 	exit 1
 fi
 
-#if [[ $(uname -r) >= "Linux 4" ]] ; then
-#        echo "==ядро 4=="
-#	echo $(uname -r)
-#	exit 1
-#else
-#    	echo "==ядро не 4=="
-#	echo $(uname -r)
-#        exit 1
-#fi
-
-
-echo $(uname -rs)
 
 REQUEST="4.18"
 CURVER=$(uname -r)
 NEWEST=$( echo -e "${CURVER}\n${REQUEST}" | sort -Vr | head -n1 )
-if [[ "${NEWEST}" < ${REQUEST} ]]
+if [[ "${NEWEST}" > ${REQUEST} ]]
 then
 	echo "==Нужное ядро=="
 	sed -i 's#'$ABSOLUTE_FILENAME'##g' ~/.bashrc
