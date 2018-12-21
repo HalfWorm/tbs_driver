@@ -33,19 +33,17 @@ else
 fi
 
 
-sudo yum -y groupinstall "Development Tools"
-sudo yum -y install elfutils-libelf-devel
-sudo yum -y install gcc unzip
-sudo yum -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
-sudo yum -y install patch patchutils
-sudo yum -y install rpm-build spectool git mock
-
 if [[ $(id) =~ "135(mock)" ]] ; then
         echo "==moc=="
 	sed -i 's#'$ABSOLUTE_FILENAME'##g' ~/.bashrc
-##	sed -i '/^$/d' ~/.bashrc
 else
 	echo "==no moc=="
+	sudo yum -y groupinstall "Development Tools"
+	sudo yum -y install elfutils-libelf-devel
+	sudo yum -y install gcc unzip
+	sudo yum -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
+	sudo yum -y install patch patchutils
+	sudo yum -y install rpm-build spectool git mock
 	sudo usermod -a -G mock $(whoami)
 	echo "==Необходим restart=="
 	echo $ABSOLUTE_FILENAME >> ~/.bashrc
