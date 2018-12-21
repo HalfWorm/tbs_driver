@@ -19,16 +19,16 @@ fi
 
 if [[ $(id) =~ "135(mock)" ]] ; then
         echo "==moc=="
-	sudo dnf -y install kernel-devel kernel
-	sudo dnf -y groupinstall "Development Tools"
-	sudo dnf -y install elfutils-libelf-devel
-	sudo dnf -y install gcc unzip
-	sudo dnf -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
-	sudo dnf -y install patch patchutils
-	sudo dnf -y install rpm-build spectool git mock
 	sed -i 's#'$ABSOLUTE_FILENAME'##g' ~/.bashrc
 else
 	echo "==no moc=="
+        sudo dnf -y install kernel-devel kernel
+        sudo dnf -y groupinstall "Development Tools"
+        sudo dnf -y install elfutils-libelf-devel
+        sudo dnf -y install gcc unzip
+        sudo dnf -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
+        sudo dnf -y install patch patchutils
+        sudo dnf -y install rpm-build spectool git mock
 	sudo usermod -a -G mock $(whoami)
 	echo "==Необходим restart=="
 	echo $ABSOLUTE_FILENAME >> ~/.bashrc
