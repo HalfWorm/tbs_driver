@@ -25,7 +25,7 @@ else
         sudo dnf -y install kernel-devel kernel
         sudo dnf -y groupinstall "Development Tools"
         sudo dnf -y install elfutils-libelf-devel
-        sudo dnf -y install gcc unzip
+        sudo dnf -y install gcc unzip wget
         sudo dnf -y install perl-Digest* perl-Proc* perl-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
         sudo dnf -y install patch patchutils
         sudo dnf -y install rpm-build spectool git mock
